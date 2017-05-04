@@ -75,6 +75,10 @@ WSGI_APPLICATION = 'nyaa_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'django.sqlite3'),
+    },
+    'nyaa': {
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'vtzzbc.sqlite'),
     },
     'sukebei': {
