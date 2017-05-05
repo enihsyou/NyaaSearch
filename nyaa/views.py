@@ -54,9 +54,8 @@ def detail(request, sukebei=False):
     result_size = 0
     results = []
     if query_name and not error_code:
-        database_query = Torrents.objects.using(database).filter(torrent_name__contains=query_name).order_by(
-            'torrent_id').reverse()
-        result_size = len(database_query)
+        database_query = Torrents.objects.using(database).filter(torrent_name__contains=query_name)
+        result_size = database_query.count()
         for i in database_query[(page_point - 1) * page_size:page_point * page_size]:
             results.append(model_to_dict(i, database))
 
